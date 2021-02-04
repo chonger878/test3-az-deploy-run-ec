@@ -1,4 +1,9 @@
-
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory = $True)]
+    [string]
+    $servicePrincipal
+)
 #region getLogin
 #Write-Output "Service Principal Login to Azure"
 az login `
