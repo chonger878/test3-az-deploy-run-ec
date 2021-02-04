@@ -1,6 +1,6 @@
 name: Creating and Deploying a VM on Azure on Github Actions
 
-Env:
+env:
     OUTPUT_PATH: ${{ github.workspace }}
 
 on: [push]
@@ -13,30 +13,27 @@ jobs:
 
     runs-on: windows-latest
 
-steps:
+    steps:
 
     # checkout code from repo
 
     - name: repo checkout
+      uses: actions/checkout@v1
 
-        uses: actions/checkout
-
-    -name: look for VM creation ps1 file
-
-    run: |
-
+    - name: look for VM creation ps1 file
+      run: |
         ls '${{ env.OUTPUT_PATH}}\getVMFiles\createVMActionFile.ps1
     
     - name: Create virtual machine in Azure
 
-        env:
+      env:
 
            RESOURCE_GROUP: rg-serverless-artillery-run-ec
            RESOURCE_GROUP_REGION: westus
            SERVER_NAME: githubactions
            ADMIN_LOGIN: nsc-ad-440-user
         
-        run: >
+      run: >
 
             powershell -command "& '${{ env.OUTPUT_PATH}}\getVMFIles\createVMActionFile.ps1'"
             -servicePrincipal ${{ secrets.SERVICE_PRINCIPAL_APPID }}
