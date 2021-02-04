@@ -22,7 +22,7 @@ jobs:
 
     - name: look for VM creation ps1 file
       run: |
-        ls '${{ env.OUTPUT_PATH}}\getVMFiles\createVMActionFile.ps1
+        ls '${{ env.OUTPUT_PATH}}\getVMFiles\createVMActionFile.ps1'
     
     - name: Create virtual machine in Azure
 
