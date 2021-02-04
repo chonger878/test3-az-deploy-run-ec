@@ -19,7 +19,7 @@ steps:
 
     - name: repo checkout
 
-    uses: actions/checkout
+        uses: actions/checkout
 
     -name: look for VM creation ps1 file
 
