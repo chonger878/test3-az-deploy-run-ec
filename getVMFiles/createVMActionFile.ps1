@@ -1,12 +1,13 @@
+
 #region getLogin
 #Write-Output "Service Principal Login to Azure"
-az login
+az login `
     --service-principal `
     --username $servicePrincipal `
     --password $servicePrincipalSecret `
     --tenant $servicePrincipalTenantId 
 Write-Output "Logged In"
-Write-Ourput ""
+Write-Output ""
 #endregion
 
 #region getSubscription
